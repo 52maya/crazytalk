@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html>
 
 <head>
-    <title>·èÑÔ·èÓï</title>
+    <title>ç–¯è¨€ç–¯è¯­</title>
+	<meta http-equiv="Content-Type" content="text/html; charset="utf-8" />
     <!-- <link rel="shortcut icon" href="./favicon.ico" /> -->
     <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
     <link href="https://fonts.loli.net/css?family=Noto+Serif+SC:200,300,900&display=swap&subset=chinese-simplified" rel="stylesheet">
@@ -21,22 +22,22 @@
 
 <body>
     <header id="header">
-        <h1>Ë­Ò²²»ÄÜ×èÖ¹ÎÒËµ»°</h1>
+        <h1>è°ä¹Ÿä¸èƒ½é˜»æ­¢æˆ‘è¯´è¯</h1>
     </header>
     <main id="app">
         <aside>
             <p id="describe">
-                Ò»¸öÖĞÄêÈË¶Ô×Ô¼º¶ÔÉú»îµÄ·èÑÔ·èÓï£¬ËùÒÔÕâÀïÃ»ÓĞµãÔŞÆÀÂÛ¡¢ÔÄ¶ÁÁ¿ÒÔ¼°ËæÖ®¶øÀ´µÄÉç½»Ñ¹Á¦£¬ÎÒÒ²²»¹ØĞÄÄã¶à¾Ã»áµã¿ªÓëÍü¼ÇÕâ¸öÕ¾µã£¬ÒòÎªËüµÄÈ«²¿ÒâÒå¾ÍÔÚÓÚÓ­ºÏÎÒ×Ô¼º¡£
+                ä¸€ä¸ªä¸­å¹´äººå¯¹è‡ªå·±å¯¹ç”Ÿæ´»çš„ç–¯è¨€ç–¯è¯­ï¼Œæ‰€ä»¥è¿™é‡Œæ²¡æœ‰ç‚¹èµè¯„è®ºã€é˜…è¯»é‡ä»¥åŠéšä¹‹è€Œæ¥çš„ç¤¾äº¤å‹åŠ›ï¼Œæˆ‘ä¹Ÿä¸å…³å¿ƒä½ å¤šä¹…ä¼šç‚¹å¼€ä¸å¿˜è®°è¿™ä¸ªç«™ç‚¹ï¼Œå› ä¸ºå®ƒçš„å…¨éƒ¨æ„ä¹‰å°±åœ¨äºè¿åˆæˆ‘è‡ªå·±ã€‚
             </p>
         </aside>
-        <p class="tip">ÏÖÔÚ×Ü¹²·èÁË {{count}} Ìõ</p>
+        <p class="tip">ç°åœ¨æ€»å…±ç–¯äº† {{count}} æ¡</p>
         <section class="item" v-for="item in contents" v-cloak>
             <p v-html='item.attributes.content'></p>
             <time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time>
         </section>
         <div class="load-ctn">
-            <button class="load-btn" v-on:click="loadMore" v-if="contents" v-cloak>ÔÙ·­·­</button>
-            <p class="tip" v-else>±ğ¼±£¬¼ÓÔØÄØ</p>
+            <button class="load-btn" v-on:click="loadMore" v-if="contents" v-cloak>å†ç¿»ç¿»</button>
+            <p class="tip" v-else>åˆ«æ€¥ï¼ŒåŠ è½½å‘¢</p>
         </div>
     </main>
     <footer>
@@ -50,8 +51,8 @@
         Query
     } = AV;
     AV.init({
-        appId: "XfaWWITg1B0WOJH371YlIYdG-MdYXbMMI", //ÄãµÄ leancloud Ó¦ÓÃ id £¨ÉèÖÃ-Ó¦ÓÃkeys-AppID£©
-        appKey: "svjGG3hGnQi9TNgfrpVH4P5B", //ÄãµÄ leancloud Ó¦ÓÃ AppKey £¨ÉèÖÃ-Ó¦ÓÃkeys-AppKey£©
+        appId: "XfaWWITg1B0WOJH371YlIYdG-MdYXbMMI", //ä½ çš„ leancloud åº”ç”¨ id ï¼ˆè®¾ç½®-åº”ç”¨keys-AppIDï¼‰
+        appKey: "svjGG3hGnQi9TNgfrpVH4P5B", //ä½ çš„ leancloud åº”ç”¨ AppKey ï¼ˆè®¾ç½®-åº”ç”¨keys-AppKeyï¼‰
     });
 
     var query = new AV.Query('content');
@@ -74,7 +75,7 @@
         var re = /(http|ftp|https):\/\/[\w-]+(.[\w-]+)+([\w-.,@?^=%&:/~+#]*[\w-\@?^=%&/~+#])?/g;;
 
         str = str.replace(re, function(website) {
-            return "<a href='" + website + "' target='_blank'> <i class='iconfont icon-lianjie-copy'></i>Á´½Ó </a>";
+            return "<a href='" + website + "' target='_blank'> <i class='iconfont icon-lianjie-copy'></i>é“¾æ¥ </a>";
         });
         return str;
     }
@@ -82,7 +83,7 @@
     function getData(page = 0) {
         query.descending('createdAt').skip(page * 20).limit(20).find().then(function(results) {
             if (results.length == 0) {
-                alert('Ö®Ç°Ã» b ¹ıÁË')
+                alert('ä¹‹å‰æ²¡ b è¿‡äº†')
             } else {
                 let resC = results;
                 reqData = false;
@@ -105,7 +106,7 @@
 </script>
 <style type="text/css">
     @media (prefers-color-scheme: dark) {
-        /* Ò¹¼äÄ£Ê½ */
+        /* å¤œé—´æ¨¡å¼ */
         body {
             background-color: black;
             color: white;
